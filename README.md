@@ -51,11 +51,42 @@ install.packages("infer")
 - Group-wise summary and filtering  
 - Permutation test (via the `infer` package) to test H₀
 
- ![image](https://github.com/user-attachments/assets/8e741fec-758d-4525-b91c-7da4a0610114)
+```r
+simulated_data_filtered <- simulated_data %>%
+  filter(Gender %in% c("male", "female"))%>%
+  mutate(Sleep_Quality_Class = ifelse(Sleep_Quality < median(Sleep_Quality), "high quality", "low quality") )
+
+
+diff_orig <- simulated_data_filtered %>%
+  group_by(Gender) %>%
+  summarize(mean_qu = mean(Sleep_Quality))%>%
+  summarize(stat = diff(mean_qu)) %>%
+  pull(stat) 
+diff_orig
+
+sleep_null <- simulated_data_filtered %>%
+  specify(Sleep_Quality ~ Gender) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in means", order = c("male", "female"))
+
+sleep_null %>% ggplot(aes(x = stat)) +
+  geom_histogram(binwidth = 0.1, fill = "#809FE3", color = "grey") +
+  geom_vline(xintercept = diff_orig, color = "red", linewidth = 0.7) +
+  annotate("rect", xmin = -Inf, xmax = diff_orig, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.2) +
+  labs(title = "Permutation Distribution of Difference in means",
+       x = "Difference in means (Male - Female)",
+       y = "Count")
+```
 
 - Multiple linear regression model
 
- ![image](https://github.com/user-attachments/assets/c51e70b3-cbff-4820-963e-1e3fcd916fab)
+```r
+multiple_regressions <- lm(Sleep_Quality ~ Gender + Age + Race + SES + Hygiene, data = simulated_data_filtered)
+summary(multiple_regressions)
+```
+![image](https://github.com/user-attachments/assets/9af394b5-61b3-41f4-bb87-25d9263cc4ed)
+
 
 - Data visualization:  
   - Boxplots  
@@ -105,7 +136,7 @@ install.packages("infer")
 ## 💡 Key Concepts Explored
 
 -  Simulating real-world-like data using summary statistics  
--  Visualizing sleep quality and duration across demographics  
+-  Visualizing sleep quality across demographics  
 -  Using permutation tests to assess group differences (via `infer`)  
 -  Fitting and interpreting linear regression models  
 -  Practicing `tidyverse` and `infer` workflows in R  
