@@ -1,9 +1,9 @@
 # 💤 Does Gender Affect Sleep?  
 *A Simulation-Based Statistical Exploration Using R*
 
-This R project simulates sleep data to explore whether gender influences sleep quality, hygiene, and duration. It is inspired by **Zendels et al., Cogent Psychology (2021)** and is intended as a statistical learning exercise using simulation, visualization, permutation testing, and linear regression.
+This R project simulates sleep data to explore whether *gender, age, hygiene, and race* influence *sleep quality*. It is inspired by **Zendels et al., Cogent Psychology (2021)** and is intended as a statistical learning exercise using simulation, visualization, permutation testing, and linear regression.
 
-> ⚠️ **Disclaimer:** In this project, I use simulated data for practice purposes ONLY. Conclusions are not generalizable to real populations.
+> ⚠️ **Disclaimer:** In this project, I use simulated data for practice purposes **ONLY**. Conclusions are not generalizable to real populations.
 
 ---
 
