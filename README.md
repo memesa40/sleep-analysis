@@ -49,8 +49,14 @@ install.packages("infer")
 ### 🧪 Statistical Techniques Used
 
 - Group-wise summary and filtering  
-- Permutation test (via the `infer` package) to test H₀  
-- Multiple linear regression model  
+- Permutation test (via the `infer` package) to test H₀
+
+ ![image](https://github.com/user-attachments/assets/8e741fec-758d-4525-b91c-7da4a0610114)
+
+- Multiple linear regression model
+
+ ![image](https://github.com/user-attachments/assets/c51e70b3-cbff-4820-963e-1e3fcd916fab)
+
 - Data visualization:  
   - Boxplots  
   - Scatter plots  
@@ -60,10 +66,21 @@ install.packages("infer")
 
 ## 📊 Visualization Examples
 
--  **Sleep quality by gender**  
--  **Sleep hygiene vs. sleep quality**  
--  **Sleep duration vs. sleep quality**  
+-  **Sleep quality by gender**
+  
+![Rplot05](https://github.com/user-attachments/assets/48804e31-d5d1-4e01-a01f-8b7d06b35fdc)
+
+-  **Sleep hygiene vs. sleep quality**
+
+ ![Rplot07](https://github.com/user-attachments/assets/fcdeb8e3-54c5-4739-91ce-4e07155e4aa8)
+ 
+-  **Sleep quality by age**
+
+ ![Rplot00](https://github.com/user-attachments/assets/f13445ce-d2cc-45bb-b530-81d8d6dbf1f3)
+
 -  **Permutation test histogram**
+
+![Rplot03](https://github.com/user-attachments/assets/66d7c85b-3d63-468e-95cc-124dba6832df)
 
 ---
 
@@ -79,9 +96,8 @@ install.packages("infer")
 ## ⚠️ Limitations
 
 -  **Simulated data**: Based on averages and assumptions; not real patient data  
--  **Small nonbinary sample size**: May limit generalizability of gender comparisons  
 -  **High dependency on randomness**: Results vary with each simulation  
--  **Assumptions**: Independence and normality assumed but may not hold true  
+-  **Assumptions**: Independence and normality assumed but may not hold true in reality
 -  **QQ plots**: Show some deviations from normality  
 
 ---
